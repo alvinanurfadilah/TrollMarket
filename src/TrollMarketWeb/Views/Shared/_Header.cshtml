@@ -1,0 +1,13 @@
+@using System.Security.Claims
+@{
+    string? username = User.FindFirst(ClaimTypes.NameIdentifier)?.Value??string.Empty;
+}
+<div class="div-header">
+    <span>TROLL MARKET</span>
+    <div>
+        <span>Welcome, @username</span><span class="accountId" hidden>@ViewData["AccountId"]</span>
+        <a asp-controller="Account" asp-action="Logout" class="logout-button"><button type="submit">Sign Out</button></a>
+    </div>
+</div>
+
+<script src="~/js/logout.js" defer></script>

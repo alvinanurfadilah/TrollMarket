@@ -1,0 +1,48 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{77EBB22A-C6CF-482A-A920-661EFF1D5623}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrollMarketBusiness", "src\TrollMarketBusiness\TrollMarketBusiness.csproj", "{B95E28A8-6B84-4175-BE40-E719EBA6FD2F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrollMarketDataAccess", "src\TrollMarketDataAccess\TrollMarketDataAccess.csproj", "{7555E795-08E3-40FC-9086-A515470F40E8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrollmarketWeb", "src\TrollMarketWeb\TrollmarketWeb.csproj", "{4F4A58D2-DF87-4753-B8EA-312A7E853F30}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrollmarketAPI", "src\TrollMarketAPI\TrollmarketAPI.csproj", "{3ADAF424-B4ED-44D8-8EFD-CC1A5EA93DE5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B95E28A8-6B84-4175-BE40-E719EBA6FD2F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B95E28A8-6B84-4175-BE40-E719EBA6FD2F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B95E28A8-6B84-4175-BE40-E719EBA6FD2F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B95E28A8-6B84-4175-BE40-E719EBA6FD2F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7555E795-08E3-40FC-9086-A515470F40E8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7555E795-08E3-40FC-9086-A515470F40E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7555E795-08E3-40FC-9086-A515470F40E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7555E795-08E3-40FC-9086-A515470F40E8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4F4A58D2-DF87-4753-B8EA-312A7E853F30}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4F4A58D2-DF87-4753-B8EA-312A7E853F30}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4F4A58D2-DF87-4753-B8EA-312A7E853F30}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4F4A58D2-DF87-4753-B8EA-312A7E853F30}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3ADAF424-B4ED-44D8-8EFD-CC1A5EA93DE5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3ADAF424-B4ED-44D8-8EFD-CC1A5EA93DE5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3ADAF424-B4ED-44D8-8EFD-CC1A5EA93DE5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3ADAF424-B4ED-44D8-8EFD-CC1A5EA93DE5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{B95E28A8-6B84-4175-BE40-E719EBA6FD2F} = {77EBB22A-C6CF-482A-A920-661EFF1D5623}
+		{7555E795-08E3-40FC-9086-A515470F40E8} = {77EBB22A-C6CF-482A-A920-661EFF1D5623}
+		{4F4A58D2-DF87-4753-B8EA-312A7E853F30} = {77EBB22A-C6CF-482A-A920-661EFF1D5623}
+		{3ADAF424-B4ED-44D8-8EFD-CC1A5EA93DE5} = {77EBB22A-C6CF-482A-A920-661EFF1D5623}
+	EndGlobalSection
+EndGlobal

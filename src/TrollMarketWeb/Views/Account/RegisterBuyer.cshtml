@@ -1,0 +1,60 @@
+@model AccountRegisterViewModel;
+@{
+    Layout = "_LayoutLogin";
+}
+
+<div class="div-container-register">
+    <div class="div-register">
+        <form method="post" class="login">
+            <table>
+                <tr>
+                    <td></td>
+                    <td><span asp-validation-for="@Model.Username" id="validation-message"></span></td>
+                </tr>
+                <tr>
+                    <td><label>Username</label></td>
+                    <td><input asp-for="Username"></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td><span asp-validation-for="@Model.Password" id="validation-message"></span></td>
+                </tr>
+                <tr>
+                    <td><label>Password</label></td>
+                    <td><input asp-for="Password" type="password"></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td><span asp-validation-for="@Model.ConfirmPassword" id="validation-message"></span></td>
+                </tr>
+                <tr>
+                    <td><label>Confirm Password</label></td>
+                    <td><input asp-for="ConfirmPassword" type="password"></td>
+                </tr>
+                <tr>
+                    <td><input asp-for="Role" value="Buyer" hidden></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td><span asp-validation-for="@Model.Name" id="validation-message"></span></td>
+                </tr>
+                <tr>
+                    <td><label>Name</label></td>
+                    <td><input asp-for="Name"></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td><span asp-validation-for="@Model.Address" id="validation-message"></span></td>
+                </tr>
+                <tr>
+                    <td><label>Address</label></td>
+                    <td><textarea asp-for="Address" cols="30" rows="10"></textarea></td>
+                </tr>
+            </table>
+            <div class="button-form">
+                <button type="submit">Register</button>
+                <button asp-action="Index" asp-controller="Account" type="submit">Back to login page</button>
+            </div>
+        </form>
+    </div>
+</div>

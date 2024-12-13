@@ -1,0 +1,23 @@
+@using System.Security.Claims
+@{
+    string? role = User.FindFirst(ClaimTypes.Role)?.Value??string.Empty;
+}
+<div class="div-nav">
+    <a asp-controller="Home" asp-action="Index"><button type="submit">Home</button></a>
+    @if (role == "Admin") {
+        <a asp-controller="Shipment" asp-action="Index"><button type="submit">Shipment</button></a>
+        <a asp-controller="Admin" asp-action="Add"><button type="submit">Admin</button></a>
+        <a asp-controller="History" asp-action="Index"><button type="submit">History</button></a>
+    }
+
+    @if (role == "Seller") {
+        <a asp-controller="Profile" asp-action="Index"><button type="submit">Profile</button></a>
+        <a asp-controller="Merchandise" asp-action="Index"><button type="submit">Merchandise</button></a>
+    }
+
+    @if (role == "Buyer") {
+        <a asp-controller="Profile" asp-action="Index"><button type="submit">Profile</button></a>
+        <a asp-controller="Shop" asp-action="Index"><button type="submit">Shop</button></a>
+        <a asp-controller="Cart" asp-action="Index"><button type="submit">My Cart</button></a>
+    }
+</div>

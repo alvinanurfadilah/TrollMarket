@@ -1,0 +1,40 @@
+@model MerchandiseFormViewModel;
+@section Breadcrumbs{
+    <div class="div-section">
+        <span><a asp-controller="Merchandise" asp-action="Index">Merchandise</a> > Add Product</span>
+    </div>
+}
+
+@* <div class="div-section"> *@
+    <form method="Post" class="profile-information">
+        <table>
+            <tr>
+                <td>Name</td>
+                <td><input asp-for="@Model.Name"></td>
+                <td><span asp-validation-for="Name" id="validation-message"></span></td>
+            </tr>
+            <tr>
+                <td>Category</td>
+                <td><input asp-for="@Model.CategoryName"></td>
+                <td><span asp-validation-for="CategoryName" id="validation-message"></span></td>
+            </tr>
+            <tr>
+                <td>Description</td>
+                <td><textarea asp-for="@Model.Description" cols="30" rows="10"></textarea></td>
+            </tr>
+            <tr>
+                <td>Price</td>
+                <td><input asp-for="@Model.Price"></td>
+                <td><span asp-validation-for="Price" id="validation-message"></span></td>
+            </tr>
+            <tr>
+                <td>Discontinue</td>
+                <td><input type="checkbox" asp-for="@Model.Discontinue"></td>
+            </tr>
+        </table>
+        <div>
+            <button type="submit">Save</button>
+            <a asp-controller="Merchandise" asp-action="Index"><button type="button">Cancel</button></a>
+        </div>
+    </form>
+@* </div> *@

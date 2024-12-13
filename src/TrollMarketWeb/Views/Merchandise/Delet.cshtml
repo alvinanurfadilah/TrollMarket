@@ -1,0 +1,85 @@
+@model MerchandiseIndexViewModel;
+@section Breadcrumbs{
+    <div class="div-section">
+        <span>Merchandise</span>
+    </div>
+}
+
+<div class="profile">
+    <a asp-action="Add"><button>Add New Product</button></a>
+    <table class="transaction">
+        <thead>
+            <tr>
+                <td>Action</td>
+                <td>Name</td>
+                <td>Category</td>
+                <td>Discontinue</td>
+            </tr>
+        </thead>
+        <tbody class="table-tbody">
+            @foreach (var item in Model.Merchandises) {
+                <tr>
+                    <td>
+                        <a asp-action="Update" asp-route-id="@item.Id"><button type="submit">Edit</button></a>
+                        <a asp-action="Delete" asp-route-id="@item.Id"><button type="submit">Delete</button></a>
+                        <a><button type="submit" class="info">Info</button></a>
+                        @if (@item.Discontinue == "No") {
+                        <a asp-action="Discontinue" asp-route-id="@item.Id"><button type="submit">Discontinue</button></a>
+                        }
+                    </td>
+                    <td hidden>@item.Id</td>
+                    <td>@item.Name</td>
+                    <td>@item.CategoryName</td>
+                    <td>@item.Discontinue</td>
+                </tr>
+            }
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="4">
+                    @if (Model != null)
+                    {
+                        <div class="pagination">
+                            <span>
+                                @for (int pageNumber = 1; pageNumber <= Model.Pagination.TotalPages; pageNumber++) {
+                                    <a asp-action="Index" asp-route-pageNumber="@pageNumber">@pageNumber</a>
+                                }
+                            </span>
+                        </div>
+                    }
+                </td>
+            </tr>
+        </tfoot>
+    </table>
+</div>
+
+
+<div class="modal">
+    <form action="" class="form-modal">
+        <table>
+            <tr>
+                <td>Name</td>
+                <td><label id="name"></label></td>
+            </tr>
+            <tr>
+                <td>Category</td>
+                <td><label id="categoryName"></label></td>
+            </tr>
+            <tr>
+                <td>Description</td>
+                <td><label id="description"></label></td>
+            </tr>
+            <tr>
+                <td>Price</td>
+                <td><label id="price"></label></td>
+            </tr>
+            <tr>
+                <td>Discontinue</td>
+                <td><label id="discontinue"></label></td>
+            </tr>
+        </table>
+        <button type="submit" class="close-merchandise">Tutup</button>
+    </form>
+</div>
+
+<script src="~/js/merchandise.js" defer></script>

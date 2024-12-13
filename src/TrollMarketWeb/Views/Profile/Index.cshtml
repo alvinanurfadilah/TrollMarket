@@ -1,0 +1,73 @@
+@model HistoryProfileIndexViewModel;
+@section Breadcrumbs{
+    <div class="div-section">
+        <span>Profile</span>
+    </div>
+}
+
+@* <div class="div-section"> *@
+    <div class="profile">
+        <form action="" class="profile-information">
+            <table>
+                <tr>
+                    <td>Name</td>
+                    <td>@Model.Profile.Name</td>
+                </tr>
+                <tr>
+                    <td>Role</td>
+                    <td>@Model.Profile.Role</td>
+                </tr>
+                <tr>
+                    <td>Address</td>
+                    <td>@Model.Profile.Address</td>
+                </tr>
+                <tr>
+                    <td>Balance</td>
+                    <td>@Model.Profile.Balance <span id="error-message"><span></td>
+                    @if (@Model.Profile.Role == "Buyer") {
+                        <td><a href=""><button type="submit" value="@Model.Profile.Username" class="balance-edit">Tambah Dana</button></a></td>
+                    }
+                </tr>
+            </table>
+        </form>
+
+        <form action="" class="transaction-information">
+            <span>My Transaction History</span>
+            <table class="transaction">
+                <thead>
+                    <tr>
+                        <td>Date</td>
+                        <td>Product</td>
+                        <td>Quantity</td>
+                        <td>Shipment</td>
+                        <td>Total Price</td>
+                    </tr>
+                </thead>
+                <tbody class="table-tbody">
+                    @foreach (var item in Model.Histories) {
+                        @if (item.OrderDate != null) {
+                            <tr>
+                                <td>@item.OrderDate</td>
+                                <td>@item.Product</td>
+                                <td>@item.Qty</td>
+                                <td>@item.Shipment</td>
+                                <td>@item.TotalPrice</td>
+                            </tr>
+                        }
+                    }
+                </tbody>
+            </table>
+        </form>
+    </div>
+@* </div> *@
+
+<div class="modal">
+    <form action="" class="form-modal">
+        <span>Tambah dana sebesar:</span>
+        <input type="text" id="balance">
+        <button type="submit" class="update-balance">Tambah</button>
+        <button type="submit" class="close-account">Batal</button>
+    </form>
+</div>
+
+<script src="~/js/profile.js" defer></script>

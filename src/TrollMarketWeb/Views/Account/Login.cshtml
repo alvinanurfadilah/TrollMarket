@@ -1,0 +1,28 @@
+@model Account.AccountLoginViewModel;
+@{
+    Layout = "_LayoutLogin";
+}
+
+<div class="div-container-login">
+    <div class="div-login">
+        <form method="post" class="login">
+            <span id="validation-message">@ViewBag.Message</span>
+            <span asp-validation-for="@Model.Username" id="validation-message"></span>
+            <input asp-for="@Model.Username" class="username" placeholder="Username">
+            
+            <span asp-validation-for="@Model.Password" id="validation-message"></span>
+            <input asp-for="@Model.Password" type="password" class="password" placeholder="Password">
+
+            <span asp-validation-for="@Model.Role" id="validation-message"></span>
+            <select asp-for="@Model.Role" id="@Model.Role" class="role" asp-items="@Model.Roles">
+            </select>
+
+            <button type="submit" class="login-button">Sign In</button>
+        </form>
+    </div>
+
+    <a asp-controller="Account" asp-action="RegisterBuyer">register as buyer</a>
+    <a asp-controller="Account" asp-action="RegisterSeller">register as seller</a>
+</div>
+
+<script src="~/js/account.js" defer></script>

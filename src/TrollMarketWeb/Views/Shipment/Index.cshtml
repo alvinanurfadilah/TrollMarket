@@ -1,0 +1,76 @@
+@model ShipmentIndexViewModel;
+@section Breadcrumbs{
+    <div class="div-section">
+        <span>Shipment</span>
+    </div>
+}
+
+<div class="profile">
+    <a><button class="add">Add New Shipment</button></a>
+    <table class="transaction">
+        <thead>
+            <tr>
+                <td>Action</td>
+                <td>Name</td>
+                <td>Price</td>
+                <td>Service</td>
+            </tr>
+        </thead>
+        <tbody class="table-tbody">
+            @foreach (var item in Model.Shipments) {
+                <tr>
+                    <td>
+                        <button type="submit" class="shipment-edit" value="@item.Id">Edit</button>
+                        <a asp-action="Delete" asp-route-id="@item.Id"><button type="submit">Delete</button></a>
+                        @if (@item.IsService == "Yes") {
+                            <a asp-action="StopService" asp-route-id="@item.Id"><button type="submit">Stop Service</button></a>
+                        }
+                    </td>
+                    <td>@item.Name</td>
+                    <td>@item.Cost</td>
+                    <td>@item.IsService</td>
+                </tr>
+            }
+        </tbody>
+        @* <tfoot>
+            <tr>
+                <td colspan="4">
+                    @if (Model != null) {
+                        <div class="pagination">
+                            <span>
+                                @for (int pageNumber = 1; pageNumber <= Model.Pagination.TotalPages; pageNumber++) {
+                                    <a asp-action="Index" asp-route-pageNumber="@pageNumber">@pageNumber</a>
+                                }
+                            </span>
+                        </div>
+                    }
+                </td>
+            </tr>
+        </tfoot> *@
+    </table>
+</div>
+
+<div class="modal">
+    <form action="" class="form-modal">
+        <table>
+            <td><input type="text" class="id" hidden></td>
+            <tr>
+                <td>Name</td>
+                <td><input type="text" class="name"></td>
+            </tr>
+            <tr>
+                <td>Price</td>
+                <td><input type="number" class="price"></td>
+            </tr>
+            <tr>
+                <td>Service</td>
+                <td><input type="checkbox" class="service"></td>
+            </tr>
+        </table>
+        <button type="submit" class="insert-shipment">Tambah</button>
+        <button type="submit" class="update-shipment">Submit</button>
+        <button type="submit" class="close-shipment">Batal</button>
+    </form>
+</div>
+
+<script src="~/js/shipment.js" defer></script>

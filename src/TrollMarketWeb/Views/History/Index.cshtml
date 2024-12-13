@@ -1,0 +1,78 @@
+@model HistoryIndexViewModel;
+@section Breadcrumbs {
+    <div class="div-section">
+        <span>History</span>
+    </div>
+}
+
+<form action="" class="profile-information">
+    <table>
+        <tr>
+            <td>Seller</td>
+            <td>
+                <select asp-for="Seller" id="@Model.Seller" asp-items="@Model.Sellers">
+                    <option value="">No Specific Seller</option>
+                </Select>
+            </td>
+        </tr>
+        <tr>
+            <td>Buyer</td>
+            <td>
+                <select asp-for="Buyer" id="@Model.Buyer" asp-items="@Model.Buyers">
+                    <option value="">No Specific Buyer</option>
+                </Select>
+            </td>
+        </tr>
+        <tr>
+            <td><button type="submit">Search</button></td>
+        </tr>
+    </table>
+</form>
+
+<form action="" class="transaction-information">
+    <table class="transaction">
+        <thead>
+            <tr>
+                <td>Date</td>
+                <td>Seller</td>
+                <td>Buyer</td>
+                <td>Product</td>
+                <td>Quantity</td>
+                <td>Shipment</td>
+                <td>Total Price</td>
+            </tr>
+        </thead>
+        <tbody class="table-tbody">
+            @foreach (var item in Model.Histories)
+            {
+                <tr>
+                    <td>@item.OrderDate</td>
+                    <td>@item.Seller</td>
+                    <td>@item.Buyer</td>
+                    <td>@item.Product</td>
+                    <td>@item.Qty</td>
+                    <td>@item.Shipment</td>
+                    <td>@item.TotalPrice</td>
+                </tr>
+            }
+        </tbody>
+        @* <tfoot>
+            <tr>
+                <td colspan="7">
+                    @if (Model != null)
+                    {
+                        <div class="pagination">
+                            <span>
+                                @for (int pageNumber = 1; pageNumber <= Model.Pagination.TotalPages; pageNumber++)
+                                {
+                                    <a asp-action="Index" asp-route-pageNumber="@pageNumber" asp-route-seller="@Model.Seller"
+                                        asp-route-buyer="@Model.Buyer">@pageNumber</a>
+                                }
+                            </span>
+                        </div>
+                    }
+                </td>
+            </tr>
+        </tfoot> *@
+    </table>
+</form>

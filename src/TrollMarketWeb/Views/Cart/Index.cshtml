@@ -1,0 +1,37 @@
+@model Cart.CartIndexViewModel;
+@section Breadcrumbs{
+    <div class="div-section">
+        <span>My Cart</span>
+    </div>
+}
+
+<div class="profile">
+    <a asp-controller="Cart" asp-action="Update"><button type="submit">Purchase All</button></a>
+    <span id="validation-message">@ViewBag.Message</span>
+    <table class="transaction">
+        <thead>
+            <tr>
+                <td>Action</td>
+                <td>Product</td>
+                <td>Quantity</td>
+                <td>Shipment</td>
+                <td>Seller</td>
+                <td>Total Price</td>
+            </tr>
+        </thead>
+        <tbody class="table-tbody">
+            @foreach (var item in Model.Carts) {
+                <tr>
+                    <td>
+                        <a asp-controller="Cart" asp-action="Delete" asp-route-id="@item.Id"><button type="submit">Remove</button></a>
+                    </td>
+                    <td>@item.Product</td>
+                    <td>@item.Qty</td>
+                    <td>@item.Shipment</td>
+                    <td>@item.Seller</td>
+                    <td>@item.TotalPrice</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

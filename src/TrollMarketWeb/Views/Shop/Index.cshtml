@@ -1,0 +1,126 @@
+@model ShopIndexViewModel;
+@section Breadcrumbs{
+    <div class="div-section">
+        <span>Shop</span>
+    </div>
+}
+
+@* <div class="div-section"> *@
+    <div class="profile">
+        <form action="" class="profile-information">
+            <table>
+                <tr>
+                    <td>Name</td>
+                    <td><input asp-for="@Model.Name"></td>
+                </tr>
+                <tr>
+                    <td>Category</td>
+                    <td><input asp-for="@Model.CategoryName"></td>
+                </tr>
+                <tr>
+                    <td>Description</td>
+                    <td><input asp-for="@Model.Description"></td>
+                </tr>
+                <tr>
+                    <td><button type="submit">Search</button></td>
+                </tr>
+            </table>
+        </form>
+
+        <form action="" class="transaction-information">
+            <table class="transaction">
+                <thead>
+                    <tr>
+                        <td>Action</td>
+                        <td>Name</td>
+                        <td>Price</td>
+                    </tr>
+                </thead>
+                <tbody class="table-tbody">
+                    @foreach(var item in Model.Shops){
+                        @if(@item.Discontinue == false) {
+                            <tr>
+                                <td>
+                                    <a><button type="submit" class="add" value="@item.Id">Add to Cart</button></a>
+                                    <a><button type="submit" class="detail-info">Detail Info</button></a>
+                                </td>
+                                <td hidden>@item.Id</td>
+                                <td>@item.Name</td>
+                                <td>@item.Price</td>
+                            </tr>
+                        }
+                    }
+                </tbody>
+                @* <tfoot>
+                    <tr>
+                        <td colspan="4">
+                            @if (Model != null)
+                            {
+                                <div class="pagination">
+                                    <span>
+                                        @for (int pageNumber = 1; pageNumber <= Model.Pagination.TotalPages; pageNumber++) {
+                                            <a asp-action="Index" asp-route-pageNumber="@pageNumber" asp-route-name="@Model.Name" asp-route-categoryName="@Model.CategoryName" asp-route-description="@Model.Description">@pageNumber</a>
+                                        }
+                                    </span>
+                                </div>
+                            }
+                        </td>
+                    </tr>
+                </tfoot> *@
+            </table>
+        </form>
+    </div>
+@* </div> *@
+
+<div class="modal">
+    <form action="" class="form-modal">
+        <table>
+            <tr>
+                <td>Quantity</td>
+                <td><input type="number" class="qty"></td>
+            </tr>
+            <tr>
+                <td>Shipment</td>
+                <td>
+                    <select class="shipment-dropdown">
+                        <option value="">Select Shipment</option>
+                    </select>
+                </td>
+            </tr>
+        </table>
+        <button type="submit" class="insert-cart">Tambah ke Keranjang</button>
+        <button type="submit" class="close-cart">Batal</button>
+    </form>
+</div>
+
+<div class="modal-detail">
+    <form action="" class="form-modal-detail">
+        <table>
+            <tr>
+                <td>Name</td>
+                <td><label id="name"></label></td>
+            </tr>
+            <tr>
+                <td>Category</td>
+                <td><label id="category"></label></td>
+            </tr>
+            <tr>
+                <td>Description</td>
+                <td><label id="description"></label></td>
+            </tr>
+            <tr>
+                <td>Price</td>
+                <td><label id="price"></label></td>
+            </tr>
+            <tr>
+                <td>Seller Name</td>
+                <td><label id="sellerName"></label></td>
+            </tr>
+            <tr>
+                <td><button type="submit" class="close-cart-detail">Tutup</button></td>
+            </tr>
+        </table>
+    </form>
+</div>
+
+<script src="~/js/cart.js" defer></script>
